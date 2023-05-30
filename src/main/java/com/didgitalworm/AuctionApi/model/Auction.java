@@ -1,33 +1,28 @@
 package com.didgitalworm.AuctionApi.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.validation.constraints.Future;
-import java.util.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "auction")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Getter
+@Setter
 public class Auction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long user_id;
-
-    private Product product_id;
-    private Date start_now ;
-    private Date stop_now;
-
-    private Date start_date;
-    private Date end_date;
-
+    private  String name;
+    private String discription;
+    private Timestamp start_now ;
+    private Timestamp stop_now;
+    private LocalDate start_date;
+    private LocalDate end_date;
     private int  start_price;
     private int  reserve_price;
 }

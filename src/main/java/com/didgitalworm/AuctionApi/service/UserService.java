@@ -2,7 +2,7 @@ package com.didgitalworm.AuctionApi.service;
 
 
 import com.didgitalworm.AuctionApi.dto.UserDto;
-import com.didgitalworm.AuctionApi.exception.EntityNotFoundException;
+import com.didgitalworm.AuctionApi.exception.NotFoundException;
 import com.didgitalworm.AuctionApi.model.User;
 import com.didgitalworm.AuctionApi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +33,6 @@ public class UserService {
 
     static User unwrapUser(Optional<User> entity, Long id) {
         if (entity.isPresent()) return entity.get();
-        else throw new EntityNotFoundException(id, User.class);
+        else throw new NotFoundException("id not found");
     }
 }
